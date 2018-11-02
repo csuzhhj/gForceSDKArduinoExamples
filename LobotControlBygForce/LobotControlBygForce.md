@@ -11,8 +11,8 @@
 ## 如何使用gForce控制LoBot机械手
 本章节开始详细介绍如何使用gForce控制LoBot机械手，在后续章节中会反复使用`gForceJoint`/
 `gForce`/`gForceSDKArduino`/`ArduinoMEGA`这些名词，具体解释请参考链接。
-* [什么是gForce](https://oymotion.github.io/doc/gForce100UserGuide/)
-* [什么是gForceJoint](https://oymotion.github.io/doc/gForce100EmbeddedSuiteUserGuide/#overview)
+* [什么是gForce](https://oymotion.github.io/gForce100/gForce100UserGuide/)
+* [什么是gForceJoint](https://oymotion.github.io/gForceEmbeddedSuit/gForce100EmbeddedSuiteUserGuide/)
 * [什么是gForceSDKArduino](https://github.com/oymotion/gForceSDKArduino)
 * [什么是ArduinoMEGA](https://www.arduino.cc/en/Main/arduinoBoardMega)
 
