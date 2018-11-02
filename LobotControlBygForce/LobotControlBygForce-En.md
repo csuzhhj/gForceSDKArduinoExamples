@@ -19,14 +19,14 @@ This chapter guides the steps to control LoBot robotic arm with gForce armband. 
 
 Remember, here users can replace the robotic arm with any other things that can be controlled. (users to change the Arduino code).
 
-![gForceAndArduino](gForceAndArduino_En.png)
+![gForceAndArduino](picSrc/gForceAndArduino_En.png)
 
 ### Step 1: Import gForceSDKArduino  
 
 * [How to import gForceSDKArduino](https://github.com/oymotion/gForceSDKArduino)
 
 ### Step 2: Test communication between gForceJoint and ArduinoMEGA:
-![gForceJointPC](gForceJointPC_En.png)
+![gForceJointPC](picSrc/gForceJointPC_En.png)
 1. Wire gForceJoint with ArduinoMEGA:  in this demo case, gForceJoint is connected to MEGA’s Serial Port #2 (gForceJoint (TX) => MEGA (RX2))
 2. Open [gForceJointTest](https://github.com/zhoukaisspu/gForceExample/blob/master/LobotControlBygForce/project/gForceJointTest/gForceJointTest.ino) in ArduinoIDE. Compile and upload to ArduinoMEGA.
 3. Open the Serial Port Monitor from ArduinoIDE.
@@ -51,7 +51,7 @@ If a gForce-100 is used, users should follow wearing instruction and gesture str
 
 
 ### Step 3: Lobot Robotic Arm Arduino Test
-![LobotArduinoMEAG](LobotTest_En.png)
+![LobotArduinoMEAG](picSrc/LobotTest_En.png)
 
 1.	Wire LoBot with ArduinoMEGA
 2.	Connect ArduinoMEAG and PC with USB, open [LobotTest](https://github.com/oymotion/gForceExample/blob/master/LobotControlBygForce/project/LobotTest/LobotTest.ino) project in ArduinoIDE, compile and update to ArduinoMEAG
@@ -65,7 +65,7 @@ If a gForce-100 is used, users should follow wearing instruction and gesture str
 
 ### Step 4: Debug gForce armband with Lobot powered Robotic Arm
 
-![LobotArdusinoMEAG](LobotControl_En.png)
+![LobotArdusinoMEAG](picSrc/LobotControl_En.png)
 
 1.	Wire gForceJoint, ArduinoMEGA, Lobot Servo Controller board and Robotic Arm together as shown in the upper figure.
 2.	Connect ArduinoMEGA to PC with USB, open [LobotControlBygForce](https://github.com/oymotion/gForceExample/blob/master/LobotControlBygForce/project/LobotControlBygForce/LobotControlBygForce.ino)  project, compile and upload to ArduinoMEGA.
