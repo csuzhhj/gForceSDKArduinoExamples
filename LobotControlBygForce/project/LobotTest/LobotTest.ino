@@ -41,7 +41,8 @@
 
 #define ServoSerial Serial3
 
-int gesture[7][6] = {
+int gesture[7][6] =
+{
   {2500, 2500, 2300, 800,  1000, 1500}, // fist
   {1200, 1200, 1100, 1900, 1900, 1500}, // spread
   {1200, 1200, 1100, 1900, 1900, 1900}, // wave in
@@ -49,7 +50,7 @@ int gesture[7][6] = {
   {2000, 1900, 1800, 1300, 1500, 1500}, // pinch
   {1200, 1200, 2200, 800, 1100, 1500}, // shoot
   {1400, 1400, 1400, 1500, 1650, 1500}  // release
-};    
+};
 
 enum GestureType
 {
@@ -67,7 +68,7 @@ LobotServoController myse(ServoSerial);
 GestureType last_gesIdx;
 void perform_gesture(GestureType gestureIdx);
 
-void setup() 
+void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(115200);
@@ -75,65 +76,89 @@ void setup()
   delay(500);
 }
 
-void loop() 
+void loop()
 {
   //put your main code here, to run repeatedly:
-    myse.receiveHandle();
-      static int lobotime = 0;     
-     Serial.println(lobotime);
-        if (lobotime == 0) {
-          perform_gesture(FistIdx);
-          Serial.println("fist");   
-          delay(2000);
-        } else if (lobotime == 1) {
-          perform_gesture(ReleaseIdx);
-          Serial.println("release");
-          delay(2000);
-        } else if (lobotime == 2) {
-          perform_gesture(WaveInIdx);
-          Serial.println("waveIn");
-          delay(2000);
-        } else if (lobotime == 3) {
-          perform_gesture(WaveOutIdx);
-          Serial.println("waveout");
-          delay(2000);
-        } else if (lobotime == 4) {
-          perform_gesture(TapIdx);
-          Serial.println("tap");
-          delay(2000);
-        } else if (lobotime == 5) {
-          perform_gesture(ShootIdx);
-          Serial.println("shoot");
-          delay(2000);
-        } else if (lobotime == 6) {
-          perform_gesture(RelaxIdx);
-          Serial.println("relax");
-          delay(2000);
-        } 
-        lobotime = lobotime + 1;
-        if(lobotime == 7) {lobotime = 0;}
-        delay(3000);
+  myse.receiveHandle();
+  static int lobotime = 0;
+  Serial.println(lobotime);
+
+  if (lobotime == 0)
+  {
+    perform_gesture(FistIdx);
+    Serial.println("fist");
+    delay(2000);
+  }
+  else if (lobotime == 1)
+  {
+    perform_gesture(ReleaseIdx);
+    Serial.println("release");
+    delay(2000);
+  }
+  else if (lobotime == 2)
+  {
+    perform_gesture(WaveInIdx);
+    Serial.println("waveIn");
+    delay(2000);
+  }
+  else if (lobotime == 3)
+  {
+    perform_gesture(WaveOutIdx);
+    Serial.println("waveout");
+    delay(2000);
+  }
+  else if (lobotime == 4)
+  {
+    perform_gesture(TapIdx);
+    Serial.println("tap");
+    delay(2000);
+  }
+  else if (lobotime == 5)
+  {
+    perform_gesture(ShootIdx);
+    Serial.println("shoot");
+    delay(2000);
+  }
+  else if (lobotime == 6)
+  {
+    perform_gesture(RelaxIdx);
+    Serial.println("relax");
+    delay(2000);
+  }
+
+  lobotime = lobotime + 1;
+
+  if(lobotime == 7)
+  {
+    lobotime = 0;
+  }
+
+  delay(3000);
 }
 
 void perform_gesture(GestureType gestureIdx)
 {
   int idx = gestureIdx;
   LobotServo servos[6];
+
   if (gestureIdx != last_gesIdx)
   {
     for (int i = 0; i < 6; i++)
     {
       servos[i].ID = i;
       servos[i].Position = gesture[idx][i];
-      Serial.print(gesture[idx][i]); Serial.print(",");
+      Serial.print(gesture[idx][i]);
+      Serial.print(",");
     }
+
     myse.moveServos(servos, 6, moveTime);
     last_gesIdx = idx;
   }
 
-  Serial.print("Gesture "); Serial.println(gestureIdx);
-  
-  
-  
+  Serial.print("Gesture ");
+  Serial.println(gestureIdx);
+
+
+
 }
 
