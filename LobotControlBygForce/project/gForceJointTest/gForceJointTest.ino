@@ -46,12 +46,12 @@ int getChar(unsigned char *data)
 
 
 /* returns System time */
-unsigned long HAL_GetTick(void)
+unsigned long SYS_GetTick(void)
 {
   return millis();
 }
 
-GForceAdapter gforce(getChar, HAL_GetTick);
+GForceAdapter gforce(getChar, SYS_GetTick);
 
 unsigned long gTimestamp = 0;
 
